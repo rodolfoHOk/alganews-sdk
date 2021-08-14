@@ -11,4 +11,10 @@ export namespace User {
   export type EditorDetailed = AlgaNews.components['schemas']['EditorDetailed'];
   export type Role = AlgaNews.components['schemas']['Role'];
   export type Skill = AlgaNews.components['schemas']['Skill'];
+  export type Query = {
+    term: string;
+    name: string;
+    email: string;
+    sort: [keyof Summary, 'asc' | 'desc'];
+  }
 }
