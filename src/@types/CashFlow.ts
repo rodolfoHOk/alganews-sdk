@@ -10,4 +10,9 @@ export namespace CashFlow {
   export type EntryInput = AlgaNews.components['schemas']['CashFlowEntryInput'];
   export type EntrySummary = AlgaNews.components['schemas']['CashFlowEntrySummary'];
   export type EntryType = AlgaNews.components['schemas']['CashFlowEntryType'];
+  export type Query = {
+    type: ['REVENUE' | 'EXPENSE'];
+    yearMonth: string;
+    sort: [keyof EntrySummary, 'asc' | 'desc'];
+  }
 }

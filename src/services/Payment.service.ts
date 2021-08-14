@@ -1,5 +1,5 @@
 import Service from '../Service';
-import { Payment } from '../@types';
+import { Payment, Post } from '../@types';
 import generateQueryString from '../utils/generateQueryString';
 
 
@@ -47,9 +47,15 @@ class PaymentService extends Service {
       .then(this.getData);
   }
 
-  static getExistingPaymentPosts(paymentId: number) {
+  static getExistingPaymentPosts(
+    paymentId: number,
+    query?: { sort: [keyof Post.Summary, 'asc' | 'desc'] }
+  ) {
+    let queryString = ''
+    if (query)
+      queryString = generateQueryString(query);
     return this.Http
-      .get<Payment.PostWithEarnings[]>(`/payments/${paymentId}/posts`)
+      .get<Payment.PostWithEarnings[]>(`/payments/${paymentId}/posts${queryString}`)
       .then(this.getData);
   }
 }
