@@ -7,4 +7,13 @@ export namespace Payment {
   export type Detailed = AlgaNews.components['schemas']['PaymentDetailed'];
   export type Summary = AlgaNews.components['schemas']['PaymentSummary'];
   export type Paginated = AlgaNews.components['schemas']['PaymentsPaginated'];
+  export type PostWithEarnings = AlgaNews.components['schemas']['PostWithEarnings'];
+  export type Query = {
+    payeeId?: number;
+    payeeEmail?: number;
+    scheduledToYearMonth?: string;
+    page?: number;
+    size?: number;
+    sort?: [keyof Summary, 'asc' | 'desc'];
+  }
 }
