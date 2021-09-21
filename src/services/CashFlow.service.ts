@@ -5,19 +5,19 @@ import generateQueryString from "../utils/generateQueryString";
 class CashFlowService extends Service {
   static getExistingEntry(entryId: number) {
     return this.Http.get<CashFlow.EntryDetailed>(
-      `/cashflow/entries${entryId}`
+      `/cashflow/entries/${entryId}`
     ).then(this.getData);
   }
 
   static updateExistingEntry(entryId: number, entryData: CashFlow.EntryInput) {
     return this.Http.put<CashFlow.EntryDetailed>(
-      `/cashflow/entries${entryId}`,
+      `/cashflow/entries/${entryId}`,
       entryData
     ).then(this.getData);
   }
 
   static removeExistingEntry(entryId: number) {
-    return this.Http.delete<{}>(`/cashflow/entries${entryId}`).then(
+    return this.Http.delete<{}>(`/cashflow/entries/${entryId}`).then(
       this.getData
     );
   }
