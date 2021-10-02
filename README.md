@@ -1,6 +1,6 @@
 # SDK do Projeto do Curso Especialista React JS da AlgaWorks
 
-> Este é o pacote SDK publicado no npm dos 3 projetos interligados do curso Especialista React JS da AlgaWorks
+> Este é o pacote SDK criado e publicado no npm para a reutilização nos 3 projetos interligados do curso Especialista React JS da AlgaWorks
 
 > O projeto geral segue o briefing:
 > https://www.notion.so/Documentos-8dca4ded101d42478b6bc2f2c7a0fb46
