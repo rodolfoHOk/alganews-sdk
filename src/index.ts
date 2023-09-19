@@ -16,4 +16,4 @@ export * from './@types';
 export default {
   services,
   utils,
-}
+};

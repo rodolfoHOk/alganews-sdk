@@ -1,4 +1,4 @@
-import { AlgaNews } from "./AlgaNews";
+import { AlgaNews } from './AlgaNews';
 
 export namespace Post {
   export type Summary = AlgaNews.components['schemas']['PostSummary'];
@@ -13,5 +13,5 @@ export namespace Post {
     size?: number;
     showAll?: boolean;
     sort?: [keyof Summary, 'asc' | 'desc'];
-  }
+  };
 }

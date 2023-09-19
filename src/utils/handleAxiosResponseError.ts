@@ -1,5 +1,5 @@
-import { AxiosError } from "axios";
-import { ErrorData } from "../CustomError";
+import { AxiosError } from 'axios';
+import { ErrorData } from '../CustomError';
 import {
   BusinessError,
   ERRORS,
@@ -9,7 +9,7 @@ import {
   InvalidParameterError,
   ResourceNotFoundError,
   SystemError,
-} from "../errors";
+} from '../errors';
 
 export default function handleAxiosResponseError(error: AxiosError<ErrorData>) {
   const { response } = error;

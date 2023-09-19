@@ -1,4 +1,4 @@
-import { AlgaNews } from "./AlgaNews";
+import { AlgaNews } from './AlgaNews';
 
 export namespace User {
   export type Input = AlgaNews.components['schemas']['UserInput'];
@@ -16,5 +16,5 @@ export namespace User {
     name: string;
     email: string;
     sort: [keyof Summary, 'asc' | 'desc'];
-  }
+  };
 }

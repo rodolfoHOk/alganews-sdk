@@ -1,20 +1,18 @@
-import { File } from "../@types";
-import Service from "../Service";
-import { v4 as uuid } from "uuid";
+import { File } from '../@types';
+import Service from '../Service';
+import { v4 as uuid } from 'uuid';
 
 class FileService extends Service {
   private static getSignedUrl(fileInfo: File.UploadRequestInput) {
-    return this.Http
-      .post<File.UploadRequest>('/upload-requests', fileInfo)
+    return this.Http.post<File.UploadRequest>('/upload-requests', fileInfo)
       .then(this.getData)
-      .then(res => res.uploadSignedUrl);
+      .then((res) => res.uploadSignedUrl);
   }
 
   private static uploadFileToSignedUrl(signedUrl: string, file: File) {
-    return this.Http
-      .put<{}>(signedUrl, file, {
-        'headers': { 'Content-Type': file.type }
-      }).then(this.getData);
+    return this.Http.put<{}>(signedUrl, file, {
+      headers: { 'Content-Type': file.type },
+    }).then(this.getData);
   }
 
   private static getFileExtension(fileName: string): string {
@@ -31,7 +29,7 @@ class FileService extends Service {
     const fileName = this.generateFileName(extension);
     const signedUrl = await FileService.getSignedUrl({
       fileName,
-      contentLength: file.size
+      contentLength: file.size,
     });
     await FileService.uploadFileToSignedUrl(signedUrl, file);
     return signedUrl.split('?')[0];

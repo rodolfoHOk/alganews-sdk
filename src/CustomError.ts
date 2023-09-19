@@ -1,10 +1,9 @@
-import { AlgaNews } from "./@types";
-
+import { AlgaNews } from './@types';
 
 export type ErrorData = AlgaNews.components['schemas']['Problem'];
 
-export type ErrorType = 
-  'BusinessError' 
+export type ErrorType =
+  | 'BusinessError'
   | 'ForbiddenError'
   | 'GenericError'
   | 'IncomprehensibleMessageError'

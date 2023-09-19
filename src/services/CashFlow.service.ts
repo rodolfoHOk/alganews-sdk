@@ -1,6 +1,6 @@
-import Service from "../Service";
-import { CashFlow } from "../@types";
-import generateQueryString from "../utils/generateQueryString";
+import Service from '../Service';
+import { CashFlow } from '../@types';
+import generateQueryString from '../utils/generateQueryString';
 
 class CashFlowService extends Service {
   static getExistingEntry(entryId: number) {
@@ -30,13 +30,13 @@ class CashFlowService extends Service {
   }
   static insertNewEntry(entryData: CashFlow.EntryInput) {
     return this.Http.post<CashFlow.EntryDetailed>(
-      "/cashflow/entries",
+      '/cashflow/entries',
       entryData
     ).then(this.getData);
   }
 
   static removeEntriesBatch(entryIds: number[]) {
-    return this.Http.put<{}>("/cashflow/entries/bulk-removals", entryIds).then(
+    return this.Http.put<{}>('/cashflow/entries/bulk-removals', entryIds).then(
       this.getData
     );
   }
@@ -64,9 +64,9 @@ class CashFlowService extends Service {
   }
 
   static getAllCategories(query?: {
-    sort: [keyof CashFlow.CategorySummary, "asc" | "desc"];
+    sort: [keyof CashFlow.CategorySummary, 'asc' | 'desc'];
   }) {
-    let queryString = "";
+    let queryString = '';
     if (query) queryString = generateQueryString(query);
     return this.Http.get<CashFlow.CategorySummary[]>(
       `/cashflow/categories${queryString}`
@@ -75,7 +75,7 @@ class CashFlowService extends Service {
 
   static insertNewCategory(categoryData: CashFlow.CategoryInput) {
     return this.Http.post<CashFlow.CategoryDetailed>(
-      "/cashflow/categories",
+      '/cashflow/categories',
       categoryData
     ).then(this.getData);
   }

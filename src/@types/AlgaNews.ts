@@ -5,81 +5,81 @@ export namespace AlgaNews {
    */
 
   export interface paths {
-    "/users/{userId}": {
+    '/users/{userId}': {
       /** Se a requisição for autenticada para um editor, só poderá ter acesso ao recurso do próprio usuário. <br>Caso a requisição for autenticada para um gerente ou assistente, poderá ter acesso a qualquer recurso de usuário. */
-      get: operations["getUserById"];
+      get: operations['getUserById'];
       /** Apenas requisições autenticadas para gerentes ou assistentes são válidas. <br>Assistentes não podem atualizar informações sensíveis de usuários com perfis de nível de acesso maior que os seus. */
-      put: operations["updateUser"];
+      put: operations['updateUser'];
       parameters: {
         path: {
           userId: number;
         };
       };
     };
-    "/users": {
+    '/users': {
       /** Apenas requisições autenticadas para gerentes ou assistentes são válidas. */
-      get: operations["getUsers"];
+      get: operations['getUsers'];
       /** Apenas requisições autenticadas para gerentes ou assistentes são válidas. <br>Assistentes não podem criar usuários com perfis de nível de acesso maior que os seus. */
-      post: operations["createUser"];
+      post: operations['createUser'];
     };
-    "/users/{userId}/activation": {
+    '/users/{userId}/activation': {
       /** Apenas requisições autenticadas para gerentes ou assistentes são válidas. <br>Assistentes não podem ativar usuários com perfis de nível de acesso maior que os seus. */
-      put: operations["activateUser"];
+      put: operations['activateUser'];
       /** Apenas requisições autenticadas para gerentes ou assistentes são válidas. <br>Assistentes não podem desativar usuários com perfis de nível de acesso maior que os seus. */
-      delete: operations["deactivateUser"];
+      delete: operations['deactivateUser'];
       parameters: {
         path: {
           userId: number;
         };
       };
     };
-    "/users/editors/{editorId}": {
-      get: operations["getEditorById"];
+    '/users/editors/{editorId}': {
+      get: operations['getEditorById'];
       parameters: {
         path: {
           editorId: number;
         };
       };
     };
-    "/users/editors": {
-      get: operations["getEditors"];
+    '/users/editors': {
+      get: operations['getEditors'];
     };
-    "/posts": {
-      get: operations["getPosts"];
-      post: operations["createPost"];
+    '/posts': {
+      get: operations['getPosts'];
+      post: operations['createPost'];
     };
-    "/posts/{postId}": {
-      get: operations["getPostById"];
-      put: operations["updatePost"];
-      delete: operations["deletePost"];
+    '/posts/{postId}': {
+      get: operations['getPostById'];
+      put: operations['updatePost'];
+      delete: operations['deletePost'];
       parameters: {
         path: {
           postId: number;
         };
       };
     };
-    "/posts/{postId}/publishing": {
-      put: operations["publishPost"];
-      delete: operations["unpublishPost"];
+    '/posts/{postId}/publishing': {
+      put: operations['publishPost'];
+      delete: operations['unpublishPost'];
       parameters: {
         path: {
           postId: number;
         };
       };
     };
-    "/payments": {
-      get: operations["getPayments"];
-      post: operations["createPayment"];
+    '/payments': {
+      get: operations['getPayments'];
+      post: operations['createPayment'];
     };
-    "/payments/bulk-approvals": {
-      put: operations["approveBulkPayments"];
+    '/payments/bulk-approvals': {
+      put: operations['approveBulkPayments'];
     };
-    "/payments/previews": {
+    '/payments/previews': {
       /** Uma simulação de pagamento não é persistida no sistema */
-      post: operations["createPaymentPreview"];
+      post: operations['createPaymentPreview'];
     };
-    "/payments/{paymentId}/approval": {
-      put: operations["approvePayment"];
+    '/payments/{paymentId}/approval': {
+      put: operations['approvePayment'];
       parameters: {
         path: {
           /** ID do pagamento */
@@ -87,10 +87,10 @@ export namespace AlgaNews {
         };
       };
     };
-    "/payments/{paymentId}": {
-      get: operations["getPayment"];
+    '/payments/{paymentId}': {
+      get: operations['getPayment'];
       /** Exclui fisicamente um pagamento. Caso o pagamento já tenha sido aprovado, não será possível excluí-lo. */
-      delete: operations["deletePayment"];
+      delete: operations['deletePayment'];
       parameters: {
         path: {
           /** ID do pagamento */
@@ -98,24 +98,24 @@ export namespace AlgaNews {
         };
       };
     };
-    "/payments/{paymentId}/posts": {
-      get: operations["getPostsByPayment"];
+    '/payments/{paymentId}/posts': {
+      get: operations['getPostsByPayment'];
       parameters: {
         path: {
           paymentId: number;
         };
         query: {
           /** Nome da propriedade para ordenação */
-          sort?: components["parameters"]["pageSort"];
+          sort?: components['parameters']['pageSort'];
         };
       };
     };
-    "/cashflow/entries/{entryId}": {
-      get: operations["getCashFlowEntry"];
+    '/cashflow/entries/{entryId}': {
+      get: operations['getCashFlowEntry'];
       /** Não é permitido atualizar um lançamento financeiro gerado pelo sistema. */
-      put: operations["updateCashFlowEntry"];
+      put: operations['updateCashFlowEntry'];
       /** Exclui fisicamente um lançamento financeiro. Caso o lançamento informado tenha sido gerado pelo sistema, não será possível excluí-lo. */
-      delete: operations["deleteCashFlowEntry"];
+      delete: operations['deleteCashFlowEntry'];
       parameters: {
         path: {
           /** ID do lançamento financeiro */
@@ -123,18 +123,18 @@ export namespace AlgaNews {
         };
       };
     };
-    "/cashflow/entries": {
-      get: operations["getCashFlowEntries"];
-      post: operations["createCashFlowEntry"];
+    '/cashflow/entries': {
+      get: operations['getCashFlowEntries'];
+      post: operations['createCashFlowEntry'];
     };
-    "/cashflow/entries/bulk-removals": {
-      put: operations["deleteBulkCashFlowEntries"];
+    '/cashflow/entries/bulk-removals': {
+      put: operations['deleteBulkCashFlowEntries'];
     };
-    "/cashflow/categories/{categoryId}": {
-      get: operations["getCashFlowCategory"];
-      put: operations["updateCashFlowCategory"];
+    '/cashflow/categories/{categoryId}': {
+      get: operations['getCashFlowCategory'];
+      put: operations['updateCashFlowCategory'];
       /** Exclui fisicamente uma categoria. Caso a categoria possua lançamentos vinculados, não será possível excluí-la. */
-      delete: operations["deleteCashFlowCategory"];
+      delete: operations['deleteCashFlowCategory'];
       parameters: {
         path: {
           /** ID da categoria */
@@ -142,11 +142,11 @@ export namespace AlgaNews {
         };
       };
     };
-    "/cashflow/categories": {
-      get: operations["getCashFlowCategories"];
-      post: operations["createCashFlowCategory"];
+    '/cashflow/categories': {
+      get: operations['getCashFlowCategories'];
+      post: operations['createCashFlowCategory'];
     };
-    "/metrics/monthly-revenues-expenses": {
+    '/metrics/monthly-revenues-expenses': {
       get: {
         parameters: {
           query: {
@@ -158,14 +158,14 @@ export namespace AlgaNews {
           /** OK */
           200: {
             content: {
-              "application/json": components["schemas"]["MonthlyRevenuesExpenses"];
-              "application/vnd.alganews.chartjs+json": components["schemas"]["MonthlyRevenuesExpensesChartjs"];
+              'application/json': components['schemas']['MonthlyRevenuesExpenses'];
+              'application/vnd.alganews.chartjs+json': components['schemas']['MonthlyRevenuesExpensesChartjs'];
             };
           };
         };
       };
     };
-    "/metrics/editor/monthly-earnings": {
+    '/metrics/editor/monthly-earnings': {
       get: {
         parameters: {
           query: {
@@ -177,26 +177,26 @@ export namespace AlgaNews {
           /** OK */
           200: {
             content: {
-              "application/json": components["schemas"]["EditorMonthlyEarnings"];
+              'application/json': components['schemas']['EditorMonthlyEarnings'];
             };
           };
         };
       };
     };
-    "/metrics/editor/top3-tags": {
+    '/metrics/editor/top3-tags': {
       get: {
         responses: {
           /** OK */
           200: {
             content: {
-              "application/json": components["schemas"]["EditorTagRatio"];
+              'application/json': components['schemas']['EditorTagRatio'];
             };
           };
         };
       };
     };
-    "/upload-requests": {
-      post: operations["createUploadRequest"];
+    '/upload-requests': {
+      post: operations['createUploadRequest'];
     };
   }
 
@@ -206,15 +206,15 @@ export namespace AlgaNews {
       UserMinimal: {
         id: number;
         name: string;
-        avatarUrls: components["schemas"]["ImageUrls"];
+        avatarUrls: components['schemas']['ImageUrls'];
       };
       /** Usuário resumido possui apenas os principais dados. */
       UserSummary: {
         id: number;
         name: string;
         email: string;
-        avatarUrls: components["schemas"]["ImageUrls"];
-        role: components["schemas"]["Role"];
+        avatarUrls: components['schemas']['ImageUrls'];
+        role: components['schemas']['Role'];
         active: boolean;
         createdAt: string;
         /** Se o usuário autenticado pode ou não ativar este usuário */
@@ -229,22 +229,22 @@ export namespace AlgaNews {
         id: number;
         name: string;
         email: string;
-        avatarUrls: components["schemas"]["ImageUrls"];
+        avatarUrls: components['schemas']['ImageUrls'];
         bio: string;
-        role: components["schemas"]["Role"];
+        role: components['schemas']['Role'];
         birthdate: string;
         phone: string;
         taxpayerId: string;
         pricePerWord: number;
         active: boolean;
         createdAt: string;
-        bankAccount: components["schemas"]["BankAccount"];
-        location: components["schemas"]["Location"];
-        skills: components["schemas"]["Skill"][] | null;
-        metrics: components["schemas"]["UserMetrics"];
+        bankAccount: components['schemas']['BankAccount'];
+        location: components['schemas']['Location'];
+        skills: components['schemas']['Skill'][] | null;
+        metrics: components['schemas']['UserMetrics'];
         updatedAt: string;
-        updatedBy: components["schemas"]["UserMinimal"];
-        createdBy: components["schemas"]["UserMinimal"];
+        updatedBy: components['schemas']['UserMinimal'];
+        createdBy: components['schemas']['UserMinimal'];
         /** Se o usuário autenticado pode ou não ativar este usuário */
         canBeActivated: boolean;
         /** Se o usuário autenticado pode ou não desativar este usuário */
@@ -260,11 +260,11 @@ export namespace AlgaNews {
         taxpayerId: string;
         phone: string;
         pricePerWord?: number;
-        role: components["schemas"]["Role"];
+        role: components['schemas']['Role'];
         birthdate: string;
-        bankAccount: components["schemas"]["BankAccount"];
-        location: components["schemas"]["Location"];
-        skills?: components["schemas"]["Skill"][] | null;
+        bankAccount: components['schemas']['BankAccount'];
+        location: components['schemas']['Location'];
+        skills?: components['schemas']['Skill'][] | null;
       } & {
         metadata: unknown;
       };
@@ -283,25 +283,25 @@ export namespace AlgaNews {
       EditorSummary: {
         id: number;
         name: string;
-        avatarUrls: components["schemas"]["ImageUrls"];
+        avatarUrls: components['schemas']['ImageUrls'];
         createdAt: string;
       };
       /** Editor (usuário) detalhado contém todos os dados. */
       EditorDetailed: {
         id: number;
         name: string;
-        avatarUrls: components["schemas"]["ImageUrls"];
+        avatarUrls: components['schemas']['ImageUrls'];
         bio: string;
         createdAt: string;
-        location: components["schemas"]["Location"];
-        skills: components["schemas"]["Skill"][] | null;
+        location: components['schemas']['Location'];
+        skills: components['schemas']['Skill'][] | null;
       };
       PostSummary: {
         id: number;
         slug: string;
         title: string;
-        imageUrls: components["schemas"]["ImageUrls"];
-        editor: components["schemas"]["EditorSummary"];
+        imageUrls: components['schemas']['ImageUrls'];
+        editor: components['schemas']['EditorSummary'];
         createdAt: string;
         updatedAt: string;
         published: boolean;
@@ -317,18 +317,18 @@ export namespace AlgaNews {
       };
       PostDetailed: {
         id: number;
-        editor: components["schemas"]["EditorSummary"];
+        editor: components['schemas']['EditorSummary'];
         slug: string;
         title: string;
-        imageUrls: components["schemas"]["ImageUrls"];
+        imageUrls: components['schemas']['ImageUrls'];
         /** Corpo do post em formato Markdown */
         body: string;
         tags: string[];
         createdAt: string;
-        earnings?: components["schemas"]["PostEarnings"];
+        earnings?: components['schemas']['PostEarnings'];
         published: boolean;
         updatedAt: string;
-        updatedBy: components["schemas"]["UserMinimal"];
+        updatedBy: components['schemas']['UserMinimal'];
         /** Se o usuário autenticado pode ou não publicar o post */
         canBePublished: boolean;
         /** Se o usuário autenticado pode ou não despublicar o post */
@@ -341,9 +341,9 @@ export namespace AlgaNews {
       PostWithEarnings: {
         id: number;
         title: string;
-        imageUrls: components["schemas"]["ImageUrls"];
+        imageUrls: components['schemas']['ImageUrls'];
         createdAt: string;
-        earnings: components["schemas"]["PostEarnings"];
+        earnings: components['schemas']['PostEarnings'];
         published: boolean;
       };
       PostInput: {
@@ -353,43 +353,43 @@ export namespace AlgaNews {
         body: string;
         tags: string[];
       };
-      PostsPaginated: components["schemas"]["Page"] & {
-        content?: components["schemas"]["PostSummary"][];
+      PostsPaginated: components['schemas']['Page'] & {
+        content?: components['schemas']['PostSummary'][];
       };
       PaymentInput: {
-        payee: components["schemas"]["UserIdInput"];
-        accountingPeriod: components["schemas"]["Period"];
-        bonuses?: components["schemas"]["Bonus"][];
+        payee: components['schemas']['UserIdInput'];
+        accountingPeriod: components['schemas']['Period'];
+        bonuses?: components['schemas']['Bonus'][];
         scheduledTo: string;
       };
       PaymentPreviewInput: {
-        payee: components["schemas"]["UserIdInput"];
-        accountingPeriod: components["schemas"]["Period"];
-        bonuses?: components["schemas"]["Bonus"][];
+        payee: components['schemas']['UserIdInput'];
+        accountingPeriod: components['schemas']['Period'];
+        bonuses?: components['schemas']['Bonus'][];
       };
       PaymentPreview: {
-        accountingPeriod: components["schemas"]["Period"];
-        payee: components["schemas"]["UserMinimal"];
-        earnings: components["schemas"]["PaymentEarnings"];
-        bonuses: components["schemas"]["Bonus"][];
+        accountingPeriod: components['schemas']['Period'];
+        payee: components['schemas']['UserMinimal'];
+        earnings: components['schemas']['PaymentEarnings'];
+        bonuses: components['schemas']['Bonus'][];
         grandTotalAmount: number;
-        bankAccount: components["schemas"]["BankAccount"];
+        bankAccount: components['schemas']['BankAccount'];
       };
       PaymentDetailed: {
         id: number;
-        accountingPeriod: components["schemas"]["Period"];
-        payee: components["schemas"]["UserMinimal"];
-        earnings: components["schemas"]["PaymentEarnings"];
-        bonuses: components["schemas"]["Bonus"][];
+        accountingPeriod: components['schemas']['Period'];
+        payee: components['schemas']['UserMinimal'];
+        earnings: components['schemas']['PaymentEarnings'];
+        bonuses: components['schemas']['Bonus'][];
         grandTotalAmount: number;
-        bankAccount: components["schemas"]["BankAccount"];
-        createdBy: components["schemas"]["UserMinimal"];
-        approvedBy: components["schemas"]["UserMinimal"];
+        bankAccount: components['schemas']['BankAccount'];
+        createdBy: components['schemas']['UserMinimal'];
+        approvedBy: components['schemas']['UserMinimal'];
         createdAt: string;
         scheduledTo: string;
         approvedAt: string;
         updatedAt: string;
-        updatedBy: components["schemas"]["UserMinimal"];
+        updatedBy: components['schemas']['UserMinimal'];
         /** Se o usuário autenticado pode ou não aprovar o pagamento */
         canBeApproved: boolean;
         /** Se o usuário autenticado pode ou não remover o pagamento */
@@ -398,8 +398,8 @@ export namespace AlgaNews {
       PaymentSummary: {
         id: number;
         grandTotalAmount: number;
-        accountingPeriod: components["schemas"]["Period"];
-        payee: components["schemas"]["UserMinimal"];
+        accountingPeriod: components['schemas']['Period'];
+        payee: components['schemas']['UserMinimal'];
         approvedAt: string;
         scheduledTo: string;
         /** Se o usuário autenticado pode ou não aprovar o pagamento */
@@ -407,46 +407,46 @@ export namespace AlgaNews {
         /** Se o usuário autenticado pode ou não remover o pagamento */
         canBeDeleted: boolean;
       };
-      PaymentsPaginated: components["schemas"]["Page"] & {
-        content?: components["schemas"]["PaymentSummary"][];
+      PaymentsPaginated: components['schemas']['Page'] & {
+        content?: components['schemas']['PaymentSummary'][];
       };
       CashFlowCategoryDetailed: {
         id: number;
         name: string;
         updatedAt: string;
-        updatedBy: components["schemas"]["UserMinimal"];
-        type: components["schemas"]["CashFlowEntryType"];
+        updatedBy: components['schemas']['UserMinimal'];
+        type: components['schemas']['CashFlowEntryType'];
         createdAt: string;
-        createdBy: components["schemas"]["UserMinimal"];
+        createdBy: components['schemas']['UserMinimal'];
         totalEntries: number;
         canBeDeleted: boolean;
       };
       CashFlowCategorySummary: {
         id: number;
         name: string;
-        type: components["schemas"]["CashFlowEntryType"];
+        type: components['schemas']['CashFlowEntryType'];
         totalEntries: number;
         canBeDeleted: boolean;
       };
       CashFlowCategoryMinimal: {
         id: number;
         name: string;
-        type: components["schemas"]["CashFlowEntryType"];
+        type: components['schemas']['CashFlowEntryType'];
       };
       CashFlowCategoryInput: {
         name: string;
-        type: components["schemas"]["CashFlowEntryType"];
+        type: components['schemas']['CashFlowEntryType'];
       };
       CashFlowCategoryIdInput: {
         id: number;
       };
-      CashFlowEntryType: "REVENUE" | "EXPENSE";
+      CashFlowEntryType: 'REVENUE' | 'EXPENSE';
       CashFlowEntrySummary: {
         id: number;
-        type: components["schemas"]["CashFlowEntryType"];
+        type: components['schemas']['CashFlowEntryType'];
         transactedOn: string;
         amount: number;
-        category: components["schemas"]["CashFlowCategoryMinimal"];
+        category: components['schemas']['CashFlowCategoryMinimal'];
         description: string;
         systemGenerated: boolean;
         canBeDeleted: boolean;
@@ -454,29 +454,29 @@ export namespace AlgaNews {
       };
       CashFlowEntryDetailed: {
         id: number;
-        type: components["schemas"]["CashFlowEntryType"];
+        type: components['schemas']['CashFlowEntryType'];
         transactedOn: string;
         amount: number;
-        category: components["schemas"]["CashFlowCategoryMinimal"];
+        category: components['schemas']['CashFlowCategoryMinimal'];
         description: string;
         systemGenerated: boolean;
-        createdBy: components["schemas"]["UserMinimal"];
+        createdBy: components['schemas']['UserMinimal'];
         createdAt: string;
         updatedAt: string;
-        updatedBy: components["schemas"]["UserMinimal"];
+        updatedBy: components['schemas']['UserMinimal'];
         canBeDeleted: boolean;
         canBeEdited: boolean;
       };
       CashFlowEntryInput: {
-        type: components["schemas"]["CashFlowEntryType"];
+        type: components['schemas']['CashFlowEntryType'];
         transactedOn: string;
         amount: number;
-        category: components["schemas"]["CashFlowCategoryIdInput"];
+        category: components['schemas']['CashFlowCategoryIdInput'];
         description: string;
       };
       MonthlyRevenuesExpensesChartjs: {
         datasets: {
-          label: "Receita" | "Despesa";
+          label: 'Receita' | 'Despesa';
           data: number[];
         }[];
         labels?: string[];
@@ -524,7 +524,7 @@ export namespace AlgaNews {
          *  * `SAVING` - Conta poupança
          *  * `CHECKING` - Conta corrente
          */
-        type: "SAVING" | "CHECKING";
+        type: 'SAVING' | 'CHECKING';
       };
       /**
        * Tipos de perfis:
@@ -532,7 +532,7 @@ export namespace AlgaNews {
        *   * `ASSISTANT` - Auxiliar de recursos humanos e administração
        *   * `MANAGER` - Gerente da plataforma
        */
-      Role: "EDITOR" | "ASSISTANT" | "MANAGER";
+      Role: 'EDITOR' | 'ASSISTANT' | 'MANAGER';
       PostEarnings: {
         pricePerWord: number;
         words: number;
@@ -575,7 +575,7 @@ export namespace AlgaNews {
         title: string;
         detail: string;
         /** Lista de objetos ou campos que geraram o erro (opcional) */
-        objects?: components["schemas"]["ProblemObject"][];
+        objects?: components['schemas']['ProblemObject'][];
         userMessage?: string;
       };
     };
@@ -583,13 +583,13 @@ export namespace AlgaNews {
       /** Recurso não encontrado */
       NotFound: {
         content: {
-          "application/json": components["schemas"]["Problem"];
+          'application/json': components['schemas']['Problem'];
         };
       };
       /** Requisição inválida */
       BadRequest: {
         content: {
-          "application/json": components["schemas"]["Problem"];
+          'application/json': components['schemas']['Problem'];
         };
       };
     };
@@ -615,10 +615,10 @@ export namespace AlgaNews {
         /** OK */
         200: {
           content: {
-            "application/json": components["schemas"]["UserDetailed"];
+            'application/json': components['schemas']['UserDetailed'];
           };
         };
-        404: components["responses"]["NotFound"];
+        404: components['responses']['NotFound'];
       };
     };
     /** Apenas requisições autenticadas para gerentes ou assistentes são válidas. <br>Assistentes não podem atualizar informações sensíveis de usuários com perfis de nível de acesso maior que os seus. */
@@ -632,15 +632,15 @@ export namespace AlgaNews {
         /** Usuário atualizado */
         200: {
           content: {
-            "application/json": components["schemas"]["UserDetailed"];
+            'application/json': components['schemas']['UserDetailed'];
           };
         };
-        400: components["responses"]["BadRequest"];
-        404: components["responses"]["NotFound"];
+        400: components['responses']['BadRequest'];
+        404: components['responses']['NotFound'];
       };
       requestBody: {
         content: {
-          "application/json": components["schemas"]["UserInput"];
+          'application/json': components['schemas']['UserInput'];
         };
       };
     };
@@ -655,14 +655,14 @@ export namespace AlgaNews {
           /** E-mail do usuário */
           email?: string;
           /** Nome da propriedade para ordenação */
-          sort?: components["parameters"]["pageSort"];
+          sort?: components['parameters']['pageSort'];
         };
       };
       responses: {
         /** OK */
         200: {
           content: {
-            "application/json": components["schemas"]["UserSummary"][];
+            'application/json': components['schemas']['UserSummary'][];
           };
         };
       };
@@ -673,14 +673,14 @@ export namespace AlgaNews {
         /** Usuário criado */
         201: {
           content: {
-            "application/json": components["schemas"]["UserDetailed"];
+            'application/json': components['schemas']['UserDetailed'];
           };
         };
-        400: components["responses"]["BadRequest"];
+        400: components['responses']['BadRequest'];
       };
       requestBody: {
         content: {
-          "application/json": components["schemas"]["UserInput"];
+          'application/json': components['schemas']['UserInput'];
         };
       };
     };
@@ -694,7 +694,7 @@ export namespace AlgaNews {
       responses: {
         /** Usuário ativado */
         204: never;
-        404: components["responses"]["NotFound"];
+        404: components['responses']['NotFound'];
       };
     };
     /** Apenas requisições autenticadas para gerentes ou assistentes são válidas. <br>Assistentes não podem desativar usuários com perfis de nível de acesso maior que os seus. */
@@ -707,7 +707,7 @@ export namespace AlgaNews {
       responses: {
         /** Usuário desativado */
         204: never;
-        404: components["responses"]["NotFound"];
+        404: components['responses']['NotFound'];
       };
     };
     getEditorById: {
@@ -720,24 +720,24 @@ export namespace AlgaNews {
         /** OK */
         200: {
           content: {
-            "application/json": components["schemas"]["EditorDetailed"];
+            'application/json': components['schemas']['EditorDetailed'];
           };
         };
-        404: components["responses"]["NotFound"];
+        404: components['responses']['NotFound'];
       };
     };
     getEditors: {
       parameters: {
         query: {
           /** Nome da propriedade para ordenação */
-          sort?: components["parameters"]["pageSort"];
+          sort?: components['parameters']['pageSort'];
         };
       };
       responses: {
         /** OK */
         200: {
           content: {
-            "application/json": components["schemas"]["EditorSummary"][];
+            'application/json': components['schemas']['EditorSummary'][];
           };
         };
       };
@@ -748,11 +748,11 @@ export namespace AlgaNews {
           /** ID do editor (usuário) do post */
           editorId?: number;
           /** Número da página para a consulta */
-          page?: components["parameters"]["pageNumber"];
+          page?: components['parameters']['pageNumber'];
           /** Quantidade de itens por página */
-          size?: components["parameters"]["pageSize"];
+          size?: components['parameters']['pageSize'];
           /** Nome da propriedade para ordenação */
-          sort?: components["parameters"]["pageSort"];
+          sort?: components['parameters']['pageSort'];
           /** Inclui todos os posts no resultado da consulta (incluindo os despublicados) */
           showAll?: boolean;
         };
@@ -761,7 +761,7 @@ export namespace AlgaNews {
         /** OK */
         200: {
           content: {
-            "application/json": components["schemas"]["PostsPaginated"];
+            'application/json': components['schemas']['PostsPaginated'];
           };
         };
       };
@@ -771,14 +771,14 @@ export namespace AlgaNews {
         /** Post criado */
         201: {
           content: {
-            "application/json": components["schemas"]["PostDetailed"];
+            'application/json': components['schemas']['PostDetailed'];
           };
         };
-        400: components["responses"]["BadRequest"];
+        400: components['responses']['BadRequest'];
       };
       requestBody: {
         content: {
-          "application/json": components["schemas"]["PostInput"];
+          'application/json': components['schemas']['PostInput'];
         };
       };
     };
@@ -792,7 +792,7 @@ export namespace AlgaNews {
         /** OK */
         200: {
           content: {
-            "application/json": components["schemas"]["PostDetailed"];
+            'application/json': components['schemas']['PostDetailed'];
           };
         };
       };
@@ -807,15 +807,15 @@ export namespace AlgaNews {
         /** Post alterado */
         200: {
           content: {
-            "application/json": components["schemas"]["PostDetailed"];
+            'application/json': components['schemas']['PostDetailed'];
           };
         };
-        400: components["responses"]["BadRequest"];
-        404: components["responses"]["NotFound"];
+        400: components['responses']['BadRequest'];
+        404: components['responses']['NotFound'];
       };
       requestBody: {
         content: {
-          "application/json": components["schemas"]["PostInput"];
+          'application/json': components['schemas']['PostInput'];
         };
       };
     };
@@ -828,7 +828,7 @@ export namespace AlgaNews {
       responses: {
         /** Post excluído */
         204: never;
-        404: components["responses"]["NotFound"];
+        404: components['responses']['NotFound'];
       };
     };
     publishPost: {
@@ -840,7 +840,7 @@ export namespace AlgaNews {
       responses: {
         /** Post publicado */
         204: never;
-        404: components["responses"]["NotFound"];
+        404: components['responses']['NotFound'];
       };
     };
     unpublishPost: {
@@ -852,7 +852,7 @@ export namespace AlgaNews {
       responses: {
         /** Post despublicado */
         204: never;
-        404: components["responses"]["NotFound"];
+        404: components['responses']['NotFound'];
       };
     };
     getPayments: {
@@ -865,18 +865,18 @@ export namespace AlgaNews {
           /** Mês/ano do agendamento */
           scheduledToYearMonth?: string;
           /** Número da página para a consulta */
-          page?: components["parameters"]["pageNumber"];
+          page?: components['parameters']['pageNumber'];
           /** Quantidade de itens por página */
-          size?: components["parameters"]["pageSize"];
+          size?: components['parameters']['pageSize'];
           /** Nome da propriedade para ordenação */
-          sort?: components["parameters"]["pageSort"];
+          sort?: components['parameters']['pageSort'];
         };
       };
       responses: {
         /** OK */
         200: {
           content: {
-            "application/json": components["schemas"]["PaymentsPaginated"];
+            'application/json': components['schemas']['PaymentsPaginated'];
           };
         };
       };
@@ -886,14 +886,14 @@ export namespace AlgaNews {
         /** Pagamento criado */
         201: {
           content: {
-            "application/json": components["schemas"]["PaymentDetailed"];
+            'application/json': components['schemas']['PaymentDetailed'];
           };
         };
-        400: components["responses"]["BadRequest"];
+        400: components['responses']['BadRequest'];
       };
       requestBody: {
         content: {
-          "application/json": components["schemas"]["PaymentInput"];
+          'application/json': components['schemas']['PaymentInput'];
         };
       };
     };
@@ -901,11 +901,11 @@ export namespace AlgaNews {
       responses: {
         /** Pagamentos aprovados */
         204: never;
-        400: components["responses"]["BadRequest"];
+        400: components['responses']['BadRequest'];
       };
       requestBody: {
         content: {
-          "application/json": number[];
+          'application/json': number[];
         };
       };
     };
@@ -915,14 +915,14 @@ export namespace AlgaNews {
         /** Simulação de pagamento criada */
         201: {
           content: {
-            "application/json": components["schemas"]["PaymentPreview"];
+            'application/json': components['schemas']['PaymentPreview'];
           };
         };
-        400: components["responses"]["BadRequest"];
+        400: components['responses']['BadRequest'];
       };
       requestBody: {
         content: {
-          "application/json": components["schemas"]["PaymentPreviewInput"];
+          'application/json': components['schemas']['PaymentPreviewInput'];
         };
       };
     };
@@ -936,8 +936,8 @@ export namespace AlgaNews {
       responses: {
         /** Pagamento aprovado */
         204: never;
-        400: components["responses"]["BadRequest"];
-        404: components["responses"]["NotFound"];
+        400: components['responses']['BadRequest'];
+        404: components['responses']['NotFound'];
       };
     };
     getPayment: {
@@ -951,10 +951,10 @@ export namespace AlgaNews {
         /** OK */
         200: {
           content: {
-            "application/json": components["schemas"]["PaymentDetailed"];
+            'application/json': components['schemas']['PaymentDetailed'];
           };
         };
-        404: components["responses"]["NotFound"];
+        404: components['responses']['NotFound'];
       };
     };
     /** Exclui fisicamente um pagamento. Caso o pagamento já tenha sido aprovado, não será possível excluí-lo. */
@@ -968,7 +968,7 @@ export namespace AlgaNews {
       responses: {
         /** Pagamento excluído */
         204: never;
-        404: components["responses"]["NotFound"];
+        404: components['responses']['NotFound'];
       };
     };
     getPostsByPayment: {
@@ -978,14 +978,14 @@ export namespace AlgaNews {
         };
         query: {
           /** Nome da propriedade para ordenação */
-          sort?: components["parameters"]["pageSort"];
+          sort?: components['parameters']['pageSort'];
         };
       };
       responses: {
         /** OK */
         200: {
           content: {
-            "application/json": components["schemas"]["PostWithEarnings"][];
+            'application/json': components['schemas']['PostWithEarnings'][];
           };
         };
       };
@@ -1001,10 +1001,10 @@ export namespace AlgaNews {
         /** OK */
         200: {
           content: {
-            "application/json": components["schemas"]["CashFlowEntryDetailed"];
+            'application/json': components['schemas']['CashFlowEntryDetailed'];
           };
         };
-        404: components["responses"]["NotFound"];
+        404: components['responses']['NotFound'];
       };
     };
     /** Não é permitido atualizar um lançamento financeiro gerado pelo sistema. */
@@ -1019,14 +1019,14 @@ export namespace AlgaNews {
         /** Lançamento financeiro atualizado */
         200: {
           content: {
-            "application/json": components["schemas"]["CashFlowEntryDetailed"];
+            'application/json': components['schemas']['CashFlowEntryDetailed'];
           };
         };
-        400: components["responses"]["BadRequest"];
+        400: components['responses']['BadRequest'];
       };
       requestBody: {
         content: {
-          "application/json": components["schemas"]["CashFlowEntryInput"];
+          'application/json': components['schemas']['CashFlowEntryInput'];
         };
       };
     };
@@ -1041,26 +1041,26 @@ export namespace AlgaNews {
       responses: {
         /** Lançamento financeiro excluído */
         204: never;
-        400: components["responses"]["BadRequest"];
-        404: components["responses"]["NotFound"];
+        400: components['responses']['BadRequest'];
+        404: components['responses']['NotFound'];
       };
     };
     getCashFlowEntries: {
       parameters: {
         query: {
           /** Tipo do lançamento financeiro */
-          type: components["schemas"]["CashFlowEntryType"];
+          type: components['schemas']['CashFlowEntryType'];
           /** Mês/ano dos lançamentos financeiros */
           yearMonth: string;
           /** Nome da propriedade para ordenação */
-          sort?: components["parameters"]["pageSort"];
+          sort?: components['parameters']['pageSort'];
         };
       };
       responses: {
         /** OK */
         200: {
           content: {
-            "application/json": components["schemas"]["CashFlowEntrySummary"][];
+            'application/json': components['schemas']['CashFlowEntrySummary'][];
           };
         };
       };
@@ -1070,14 +1070,14 @@ export namespace AlgaNews {
         /** Lançamento financeiro criado */
         201: {
           content: {
-            "application/json": components["schemas"]["CashFlowEntryDetailed"];
+            'application/json': components['schemas']['CashFlowEntryDetailed'];
           };
         };
-        400: components["responses"]["BadRequest"];
+        400: components['responses']['BadRequest'];
       };
       requestBody: {
         content: {
-          "application/json": components["schemas"]["CashFlowEntryInput"];
+          'application/json': components['schemas']['CashFlowEntryInput'];
         };
       };
     };
@@ -1085,11 +1085,11 @@ export namespace AlgaNews {
       responses: {
         /** Lançamentos financeiros excluídos */
         204: never;
-        400: components["responses"]["BadRequest"];
+        400: components['responses']['BadRequest'];
       };
       requestBody: {
         content: {
-          "application/json": number[];
+          'application/json': number[];
         };
       };
     };
@@ -1104,10 +1104,10 @@ export namespace AlgaNews {
         /** OK */
         200: {
           content: {
-            "application/json": components["schemas"]["CashFlowCategoryDetailed"];
+            'application/json': components['schemas']['CashFlowCategoryDetailed'];
           };
         };
-        404: components["responses"]["NotFound"];
+        404: components['responses']['NotFound'];
       };
     };
     updateCashFlowCategory: {
@@ -1121,14 +1121,14 @@ export namespace AlgaNews {
         /** Categoria atualizada */
         200: {
           content: {
-            "application/json": components["schemas"]["CashFlowCategoryDetailed"];
+            'application/json': components['schemas']['CashFlowCategoryDetailed'];
           };
         };
-        400: components["responses"]["BadRequest"];
+        400: components['responses']['BadRequest'];
       };
       requestBody: {
         content: {
-          "application/json": components["schemas"]["CashFlowCategoryInput"];
+          'application/json': components['schemas']['CashFlowCategoryInput'];
         };
       };
     };
@@ -1143,22 +1143,22 @@ export namespace AlgaNews {
       responses: {
         /** Categoria excluída */
         204: never;
-        400: components["responses"]["BadRequest"];
-        404: components["responses"]["NotFound"];
+        400: components['responses']['BadRequest'];
+        404: components['responses']['NotFound'];
       };
     };
     getCashFlowCategories: {
       parameters: {
         query: {
           /** Nome da propriedade para ordenação */
-          sort?: components["parameters"]["pageSort"];
+          sort?: components['parameters']['pageSort'];
         };
       };
       responses: {
         /** OK */
         200: {
           content: {
-            "application/json": components["schemas"]["CashFlowCategorySummary"][];
+            'application/json': components['schemas']['CashFlowCategorySummary'][];
           };
         };
       };
@@ -1168,14 +1168,14 @@ export namespace AlgaNews {
         /** Categoria criada */
         201: {
           content: {
-            "application/json": components["schemas"]["CashFlowCategoryDetailed"];
+            'application/json': components['schemas']['CashFlowCategoryDetailed'];
           };
         };
-        400: components["responses"]["BadRequest"];
+        400: components['responses']['BadRequest'];
       };
       requestBody: {
         content: {
-          "application/json": components["schemas"]["CashFlowCategoryInput"];
+          'application/json': components['schemas']['CashFlowCategoryInput'];
         };
       };
     };
@@ -1184,19 +1184,18 @@ export namespace AlgaNews {
         /** Solicitação de upload de arquivo criada */
         200: {
           content: {
-            "application/json": components["schemas"]["UploadRequest"];
+            'application/json': components['schemas']['UploadRequest'];
           };
         };
-        400: components["responses"]["BadRequest"];
+        400: components['responses']['BadRequest'];
       };
       requestBody: {
         content: {
-          "application/json": components["schemas"]["UploadRequestInput"];
+          'application/json': components['schemas']['UploadRequestInput'];
         };
       };
     };
   }
 
-  export interface external { }
-
+  export interface external {}
 }

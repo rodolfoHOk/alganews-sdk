@@ -1,6 +1,6 @@
-import { Post } from "../@types";
-import Service from "../Service";
-import generateQueryString from "../utils/generateQueryString";
+import { Post } from '../@types';
+import Service from '../Service';
+import generateQueryString from '../utils/generateQueryString';
 
 class PostService extends Service {
   static getAllPosts(search: Post.Query) {
@@ -21,7 +21,7 @@ class PostService extends Service {
   }
 
   static insertNewPost(post: Post.Input) {
-    return this.Http.post<Post.Detailed>("/posts", post).then(this.getData);
+    return this.Http.post<Post.Detailed>('/posts', post).then(this.getData);
   }
 
   static publishExistingPost(postId: number) {
