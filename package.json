@@ -9,11 +9,11 @@
     "prepublish": "yarn build"
   },
   "devDependencies": {
-    "@types/uuid": "^9.0.4",
+    "@types/uuid": "^9.0.7",
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.6.1",
     "date-fns": "^2.30.0",
     "uuid": "^9.0.1"
   }
