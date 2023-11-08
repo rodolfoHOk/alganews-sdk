@@ -1,4 +1,4 @@
-import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
+import axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import handleAxiosResponseSuccess from './utils/handleAxiosResponseSuccess';
 import handleAxiosResponseError from './utils/handleAxiosResponseError';
 
@@ -25,8 +25,8 @@ class Service {
 
   public static setRequestInterceptors(
     onFulfilled: (
-      request: AxiosRequestConfig
-    ) => AxiosRequestConfig | Promise<AxiosRequestConfig>,
+      request: InternalAxiosRequestConfig
+    ) => InternalAxiosRequestConfig | Promise<InternalAxiosRequestConfig>,
     onRejected?: (error: any) => any
   ) {
     Http.interceptors.request.use(onFulfilled, onRejected);
