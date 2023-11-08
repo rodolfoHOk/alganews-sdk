@@ -1,6 +1,6 @@
 {
   "name": "rodolfohiok-sdk",
-  "version": "3.2.8",
+  "version": "3.2.10",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "axios": "^1.6.1",
+    "axios": "^0.27.2",
     "date-fns": "^2.30.0",
     "uuid": "^9.0.1"
   }
